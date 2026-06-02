@@ -133,7 +133,8 @@ Intermediate datasets and cached results are generated automatically during exec
   * `continuous_spectra/`: Continuous translation-stage measurements used for the main classification workflow.
 
     * `c_01/` to `c_37/`: Individual continuous measurement sequences.
-  * `fixed_spectra/`: Fixed-position feasibility measurements acquired during the initial validation of the setup.
+* `fixed_spectra/`: Fixed-position feasibility measurements acquired during the initial validation of the setup.
+  These spectra are included for completeness and transparency but are not used in the subsequent classification workflow.
 
     * `f_001/` to `f_504/`: Individual fixed-position measurement folders.
   * `light_source_spectrum/`: Recorded emission spectrum of the broadband illumination source.
@@ -141,7 +142,7 @@ Intermediate datasets and cached results are generated automatically during exec
 * **Jupyter notebooks**
 
   * `01_data_selection.ipynb`: Selects sample-related spectra from the continuous measurement sequences.
-  * `02_preprocessing.ipynb`: Applies background correction, artefact interpolation, SNV normalisation, and Savitzky–Golay derivative preprocessing.
+  * `02_preprocessing.ipynb`: Applies background correction, artefact interpolation, SNV transformation, and Savitzky–Golay derivative preprocessing.
   * `03_classification_validation.ipynb`: Performs PCA-based dimensionality reduction, SVC classification, and LOGO-CV validation.
 
 * **Python modules**
@@ -184,7 +185,7 @@ The preprocessing pipeline includes:
 
 * background correction,
 * detector artefact interpolation using PCHIP interpolation,
-* Standard Normal Variate (SNV) normalisation,
+* Standard Normal Variate (SNV) transformation,
 * Savitzky–Golay smoothing,
 * first-derivative Savitzky–Golay filtering.
 
