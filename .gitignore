@@ -214,3 +214,6 @@ __MACOSX/
 results/cache/*
 !results/cache/.gitkeep
 results/**/*.csv
+
+# Keep folder structure
+!results/cache/.gitkeep
