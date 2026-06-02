@@ -133,8 +133,8 @@ Intermediate datasets and cached results are generated automatically during exec
   * `continuous_spectra/`: Continuous translation-stage measurements used for the main classification workflow.
 
     * `c_01/` to `c_37/`: Individual continuous measurement sequences.
-* `fixed_spectra/`: Fixed-position feasibility measurements acquired during the initial validation of the setup.
-  These spectra are included for completeness and transparency but are not used in the subsequent classification workflow.
+  * `fixed_spectra/`: Fixed-position feasibility measurements acquired during the initial validation of the setup.
+    These spectra are included for completeness and transparency but are not used in the subsequent classification workflow.
 
     * `f_001/` to `f_504/`: Individual fixed-position measurement folders.
   * `light_source_spectrum/`: Recorded emission spectrum of the broadband illumination source.
