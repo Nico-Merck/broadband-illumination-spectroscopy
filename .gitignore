@@ -213,3 +213,4 @@ __MACOSX/
 # Locally generated cache files
 results/cache/*
 !results/cache/.gitkeep
+results/**/*.csv
