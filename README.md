@@ -166,9 +166,21 @@ Intermediate datasets and cached results are generated automatically during exec
 
 ---
 
+## Data selection workflow
+
+The notebook `01_data_selection.ipynb` identifies sample-related spectra from continuous translation-stage measurements.
+
+For each spectrum, the total intensity is calculated as the sum over all wavelength channels. Spectra are retained if their total intensity exceeds a threshold relative to the median intensity of the corresponding measurement sequence.
+
+The selected spectra are subsequently used as input for the preprocessing and classification workflows.
+
+---
+
 ## Preprocessing pipeline
 
-The preprocessing workflow includes:
+The notebook `02_preprocessing.ipynb` applies the preprocessing workflow to the selected spectra.
+
+The preprocessing pipeline includes:
 
 * background correction,
 * detector artefact interpolation using PCHIP interpolation,
@@ -181,6 +193,8 @@ The resulting spectra are subsequently used for PCA-based dimensionality reducti
 ---
 
 ## Classification workflow
+
+The notebook `03_classification_validation.ipynb` performs dimensionality reduction, classification, and validation of the preprocessed spectra.
 
 The repository evaluates three classification tasks:
 
