@@ -1,0 +1,15 @@
+name: bis_venv
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.12
+  - jupyterlab
+  - ipykernel
+  - nbformat
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - plotly

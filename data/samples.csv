@@ -1,0 +1,24 @@
+sample_id,display_label,material_group,material_type,polymer_type,colour,display_colour,source_object
+
+test_tube,Test tube,non_plastic,glass,,,#C65D5D,test_tube
+microscope_slide,Microscope slide,non_plastic,glass,,,#E99696,microscope_slide
+wood,Wood,non_plastic,wood,,,#7DAA3A,wood
+sand,Sand,non_plastic,mineral,,,#8C7B2F,play_sand
+
+pe,PE,plastic,polymer,PE,,#C89B1F,iow
+pehd,PE-HD,plastic,polymer,PE-HD,,#9E7A12,distilled_water_container
+pehd_blue,PE-HD (blue),plastic,polymer,PE-HD,blue,#3E6FD8,detergent_container
+
+pp,PP,plastic,polymer,PP,,#2DB7C4,nectarine_tray
+pp_green,PP (green),plastic,polymer,PP,green,#63C132,highlighter_cap
+pp_orange,PP (orange),plastic,polymer,PP,orange,#E67E22,highlighter_cap
+pp_pink,PP (pink),plastic,polymer,PP,pink,#E83E8C,highlighter_cap
+pp_yellow,PP (yellow),plastic,polymer,PP,yellow,#F1C40F,highlighter_cap
+
+ps,PS,plastic,polymer,PS,,#8FA8C9,screw_storage_box
+ps_blue,PS (blue),plastic,polymer,PS,blue,#1F78D1,trolley_chip
+ps_red,PS (red),plastic,polymer,PS,red,#D64545,trolley_chip
+ps_yellow,PS (yellow),plastic,polymer,PS,yellow,#F7DC6F,trolley_chip
+
+pet,PET,plastic,polymer,PET,,#3FAE6F,soap_dispenser_bottle
+pvc,PVC,plastic,polymer,PVC,,#7D3CB5,iow
