@@ -126,21 +126,43 @@ Intermediate datasets and cached results are generated automatically during exec
 
 ---
 
-## Data organisation
+## Contents
 
-The repository contains both fixed-position and continuous spectral measurements.
+* **Data folder**
 
-### `data/fixed_spectra/`
+  * `continuous_spectra/`: Continuous translation-stage measurements used for the main classification workflow.
 
-Contains spectra acquired during the initial feasibility measurements at fixed sample positions.
+    * `c_01/` to `c_37/`: Individual continuous measurement sequences.
+  * `fixed_spectra/`: Fixed-position feasibility measurements acquired during the initial validation of the setup.
 
-### `data/continuous_spectra/`
+    * `f_001/` to `f_504/`: Individual fixed-position measurement folders.
+  * `light_source_spectrum/`: Recorded emission spectrum of the broadband illumination source.
 
-Contains continuous translation-stage measurements used for the classification workflow described in the manuscript.
+* **Jupyter notebooks**
 
-### `data/light_source_spectrum/`
+  * `01_data_selection.ipynb`: Selects sample-related spectra from the continuous measurement sequences.
+  * `02_preprocessing.ipynb`: Applies background correction, artefact interpolation, SNV normalisation, and Savitzky–Golay derivative preprocessing.
+  * `03_classification_validation.ipynb`: Performs PCA-based dimensionality reduction, SVC classification, and LOGO-CV validation.
 
-Contains the recorded emission spectrum of the broadband illumination source.
+* **Python modules**
+
+  * `src/cache.py`: Utilities for generating and loading locally cached intermediate datasets.
+  * `src/classification.py`: Classification, validation, and evaluation routines.
+  * `src/data_selection.py`: Functions for selecting sample-related spectra based on intensity criteria.
+  * `src/loaders.py`: Data loading utilities for spectral datasets and metadata.
+  * `src/plot_style.py`: Global plotting configuration.
+  * `src/plotting.py`: Plotting functions used by the notebooks.
+  * `src/preprocessing.py`: Spectral preprocessing functions.
+
+* **Generated outputs**
+
+  * `results/cache/`: Locally generated intermediate datasets. Cache contents are excluded from version control and regenerated automatically when the notebooks are executed.
+
+* **Environment and metadata**
+
+  * `environment.yml`: Conda environment file specifying the dependencies required to reproduce the analysis.
+  * `LICENSE`: Licence information.
+  * `README.md`: Project description, installation instructions, and usage guide.
 
 ---
 
@@ -177,14 +199,6 @@ Validation is performed using Leave-One-Group-Out cross-validation (LOGO-CV) to 
 The directory `results/cache/` is used for locally generated intermediate files and cached datasets.
 
 Cache contents are intentionally excluded from version control and are regenerated automatically when the notebooks are executed.
-
----
-
-## Reproducibility
-
-The repository is designed as a reproducibility resource for the associated publication.
-
-All preprocessing, classification, and evaluation steps used in the manuscript are included in this repository.
 
 ---
 
