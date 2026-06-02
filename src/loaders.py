@@ -13,7 +13,7 @@ SAMPLES_CSV = PROJECT_ROOT / "data" / "samples.csv"
 
 CONTINUOUS_DIR = PROJECT_ROOT / "data" / "continuous_spectra"
 FIXED_DIR = PROJECT_ROOT / "data" / "fixed_spectra"
-LIGHT_SOURCE_DIR = PROJECT_ROOT / "data" / "lightsource_spectrum"
+LIGHT_SOURCE_DIR = PROJECT_ROOT / "data" / "light_source_spectrum"
 
 CONTINUOUS_CSV = CONTINUOUS_DIR / "continuous_measurements.csv"
 FIXED_CSV = FIXED_DIR / "fixed_measurements.csv"
