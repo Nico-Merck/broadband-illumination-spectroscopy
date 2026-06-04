@@ -105,7 +105,7 @@ Intermediate datasets and cached results are generated automatically during exec
 ├── notebooks/                                        # Sequential analysis workflow notebooks
 │   ├── 01_data_selection.ipynb                       # Selection of sample-related spectra
 │   ├── 02_preprocessing.ipynb                        # Spectral preprocessing workflow
-│   └── 03_classification_validation.ipynb            # PCA, SVC classification, and validation
+│   └── 03_classification_validation.ipynb            # PCA, SVC, and validation
 │
 ├── results/                                          # Generated local analysis outputs
 │   └── cache/                                        # Automatically generated intermediate datasets
@@ -199,9 +199,9 @@ The notebook `03_classification_validation.ipynb` performs dimensionality reduct
 
 The repository evaluates three classification tasks:
 
-1. Full material discrimination between all investigated classes
-2. Reduced polymer-family-level classification
-3. Binary plastic-versus-non-plastic classification
+1. Full 18-class material discrimination between all investigated classes
+2. Reduced polymer-type classification
+3. Binary plastic-versus-non-plastic differentiation
 
 Classification is performed using a Support Vector Classifier (SVC) with a radial basis function (RBF) kernel.
 
