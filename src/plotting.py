@@ -420,6 +420,178 @@ def plot_spectra_per_sample(
 
     return fig
 
+def plot_cumulative_explained_variance(
+    cumulative_variance_unprocessed: np.ndarray,
+    n_components_unprocessed: int,
+    cumulative_variance_preprocessed: np.ndarray,
+    n_components_preprocessed: int,
+    variance_threshold: float = 0.99,
+) -> go.Figure:
+    """
+    Plot cumulative explained variance for unprocessed and preprocessed spectra.
+
+    The curves are shown only up to the number of principal components required
+    to reach the selected cumulative variance threshold.
+
+    Parameters
+    ----------
+    cumulative_variance_unprocessed : np.ndarray
+        Cumulative explained variance ratio of the unprocessed spectra.
+    n_components_unprocessed : int
+        Number of principal components required for the unprocessed spectra.
+    cumulative_variance_preprocessed : np.ndarray
+        Cumulative explained variance ratio of the preprocessed spectra.
+    n_components_preprocessed : int
+        Number of principal components required for the preprocessed spectra.
+    variance_threshold : float, default=0.99
+        Cumulative explained-variance threshold shown as horizontal reference.
+
+    Returns
+    -------
+    go.Figure
+        Plotly figure showing cumulative explained variance.
+    """
+
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Scatter(
+            x=np.arange(1, n_components_unprocessed + 1),
+            y=100 * cumulative_variance_unprocessed[
+                :n_components_unprocessed
+            ],
+            mode="lines+markers",
+            name="Unprocessed",
+        )
+    )
+
+    fig.add_trace(
+        go.Scatter(
+            x=np.arange(1, n_components_preprocessed + 1),
+            y=100 * cumulative_variance_preprocessed[
+                :n_components_preprocessed
+            ],
+            mode="lines+markers",
+            name="Preprocessed",
+        )
+    )
+
+    fig.add_hline(
+        y=100 * variance_threshold,
+        line_dash="dash",
+    )
+
+    fig.update_layout(
+        title="Cumulative explained variance",
+        xaxis_title="Principal component",
+        yaxis_title="Explained variance (%)",
+        xaxis=dict(
+            range=[
+                1,
+                max(
+                    n_components_unprocessed,
+                    n_components_preprocessed,
+                ),
+            ],
+        ),
+        yaxis=dict(
+            range=[0, 100],
+        ),
+    )
+
+    return fig
+
+def plot_cumulative_explained_variance(
+    cumulative_variance_unprocessed: np.ndarray,
+    n_components_unprocessed: int,
+    cumulative_variance_preprocessed: np.ndarray,
+    n_components_preprocessed: int,
+    variance_threshold: float = 0.99,
+) -> go.Figure:
+    """
+    Plot cumulative explained variance for unprocessed and preprocessed spectra.
+
+    The curves are shown only up to the number of principal components required
+    to reach the selected cumulative variance threshold.
+
+    Parameters
+    ----------
+    cumulative_variance_unprocessed : np.ndarray
+        Cumulative explained variance ratio of the unprocessed spectra.
+    n_components_unprocessed : int
+        Number of principal components required for the unprocessed spectra.
+    cumulative_variance_preprocessed : np.ndarray
+        Cumulative explained variance ratio of the preprocessed spectra.
+    n_components_preprocessed : int
+        Number of principal components required for the preprocessed spectra.
+    variance_threshold : float, default=0.99
+        Cumulative explained-variance threshold shown as horizontal reference.
+
+    Returns
+    -------
+    go.Figure
+        Plotly figure showing cumulative explained variance.
+    """
+
+    fig = go.Figure()
+
+    fig.add_trace(
+        go.Scatter(
+            x=np.arange(1, n_components_unprocessed + 1),
+            y=100 * cumulative_variance_unprocessed[
+                :n_components_unprocessed
+            ],
+            mode="lines+markers",
+            name="Unprocessed",
+            hovertemplate=(
+                "Principal component: %{x}<br>"
+                "Cumulative explained variance: %{y:.2f}%"
+                "<extra></extra>"
+            ),
+        )
+    )
+
+    fig.add_trace(
+        go.Scatter(
+            x=np.arange(1, n_components_preprocessed + 1),
+            y=100 * cumulative_variance_preprocessed[
+                :n_components_preprocessed
+            ],
+            mode="lines+markers",
+            name="Preprocessed",
+            hovertemplate=(
+                "Principal component: %{x}<br>"
+                "Cumulative explained variance: %{y:.2f}%"
+                "<extra></extra>"
+            ),
+        )
+    )
+
+    fig.add_hline(
+        y=100 * variance_threshold,
+        line_dash="dash",
+    )
+
+    fig.update_layout(
+        title="Cumulative explained variance",
+        xaxis_title="Principal component",
+        yaxis_title="Explained variance (%)",
+        xaxis=dict(
+            range=[
+                1,
+                max(
+                    n_components_unprocessed,
+                    n_components_preprocessed,
+                ),
+            ],
+        ),
+        yaxis=dict(
+            range=[0, 100],
+        ),
+    )
+
+    return fig
+
 def plot_pca_component_distribution(
     pc_counts,
     title: str = (

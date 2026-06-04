@@ -78,6 +78,37 @@ def create_pca_svc_pipeline(
         ]
     )
 
+def calculate_cumulative_explained_variance(
+    intensities: np.ndarray,
+    variance_threshold: float = 0.99,
+) -> tuple[np.ndarray, int]:
+    """
+    Calculate cumulative explained variance from PCA.
+
+    Parameters
+    ----------
+    intensities : np.ndarray
+        Spectral intensity matrix with shape
+        (n_spectra, n_wavelengths).
+    variance_threshold : float, default=0.99
+        Cumulative explained-variance threshold.
+
+    Returns
+    -------
+    cumulative_variance : np.ndarray
+        Cumulative explained variance ratio for all principal components.
+    n_components : int
+        Minimum number of principal components required to reach
+        ``variance_threshold``.
+    """
+
+    pca = PCA()
+    pca.fit(intensities)
+
+    cumulative_variance = np.cumsum(pca.explained_variance_ratio_)
+    n_components = np.argmax(cumulative_variance >= variance_threshold) + 1
+
+    return cumulative_variance, n_components
 
 def evaluate_logo_predictions(
     X: ArrayLike,
