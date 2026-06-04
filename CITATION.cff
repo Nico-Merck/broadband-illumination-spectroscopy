@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: "broadband-illumination-spectroscopy"
+message: "If you use this repository, please cite it using the metadata below."
+type: software
+authors:
+  - family-names: "Merck"
+    given-names: "Nico"
+repository-code: "https://github.com/Nico-Merck/broadband-illumination-spectroscopy"
+license: Apache-2.0
